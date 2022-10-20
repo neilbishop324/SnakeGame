@@ -1,3 +1,5 @@
+package sealed
+
 sealed class Dest() {
     object W: Dest()
     object A: Dest()
