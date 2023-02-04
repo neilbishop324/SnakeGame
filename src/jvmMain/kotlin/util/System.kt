@@ -1,6 +1,5 @@
 package util
 
-import androidx.compose.ui.graphics.Color
 import java.io.File
 
 fun writeToFile(attr: String, value: String) {
@@ -43,8 +42,4 @@ fun getAttr(attr: String) : String? {
         e.printStackTrace()
         return null
     }
-}
-
-fun getColorFromString(content: String) : Color {
-    return Color(content.substring(1).toInt(16))
 }

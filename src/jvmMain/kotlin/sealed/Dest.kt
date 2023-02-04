@@ -1,6 +1,6 @@
 package sealed
 
-sealed class Dest() {
+sealed class Dest {
     object W: Dest()
     object A: Dest()
     object S: Dest()
