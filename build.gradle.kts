@@ -27,6 +27,8 @@ kotlin {
         val jvmMain by getting {
             dependencies {
                 implementation(compose.desktop.currentOs)
+                implementation("com.godaddy.android.colorpicker:compose-color-picker-desktop:0.2.0")
+                implementation("com.google.code.gson:gson:2.10.1")
             }
         }
         val jvmTest by getting

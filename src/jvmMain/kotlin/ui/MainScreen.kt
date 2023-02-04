@@ -12,7 +12,6 @@ import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
@@ -23,17 +22,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.key.Key
 import androidx.compose.ui.input.key.key
 import androidx.compose.ui.input.key.onKeyEvent
-import androidx.compose.ui.platform.LocalViewConfiguration
-import androidx.compose.ui.platform.WindowInfo
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.*
 import table
 
 @OptIn(ExperimentalFoundationApi::class, ExperimentalComposeUiApi::class)
 @Preview
 @Composable
-fun MainScreen(scope: ApplicationScope, move: (input: String) -> Unit) {
+fun mainScreen(scope: ApplicationScope, move: (input: String) -> Unit) {
     MaterialTheme {
         val requester = remember { FocusRequester() }
         Box(modifier = Modifier.onKeyEvent { event ->
@@ -47,7 +43,7 @@ fun MainScreen(scope: ApplicationScope, move: (input: String) -> Unit) {
         }.focusRequester(requester).focusable()) {
             LazyVerticalGrid(GridCells.Fixed(table.size)) {
                 items(table.size * table.size) {
-                    SqPxItem(table[it / table.size][it % table.size].value)
+                    sqPxItem(table[it / table.size][it % table.size].value)
                 }
             }
         }
@@ -95,7 +91,7 @@ private fun showAlertDialog(scope: ApplicationScope) {
 }
 
 @Composable
-fun SqPxItem(color: Color) {
+fun sqPxItem(color: Color) {
     Box(
         modifier = Modifier
             .background(color).width(4.dp).height(20.dp)
